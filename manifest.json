@@ -1,11 +1,17 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "files": [
     {
       "path": "BepInEx/plugins/SangrisInterface.dll",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.1.1/SangrisInterface.dll",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.2.0/SangrisInterface.dll",
       "sha256": "825fa1c9d3a7724370ce51dc32c69f8a380344400cd63bb4ac7289cdad1e343b",
       "size": 336384
+    },
+    {
+      "path": "BepInEx/plugins/Eclipse.dll",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.2.0/Eclipse.dll",
+      "sha256": "3de3cac11dc7b5c5e6397a68d07e5605b3decd3081e278f6f150493a8fec891e",
+      "size": 5213696
     }
   ]
 }
