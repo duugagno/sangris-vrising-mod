@@ -1,0 +1,17 @@
+# Release v1.1.1
+
+## 📊 Informações Técnicas
+- **Versão**: 1.1.1
+- **Data**: 15/10/2025 15:05
+- **SHA256**: 825fa1c9d3a7724370ce51dc32c69f8a380344400cd63bb4ac7289cdad1e343b
+- **Tamanho**: 336384 bytes
+
+## 🔗 URLs
+- **Download**: https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.1.1/SangrisInterface.dll
+- **Manifest**: https://raw.githubusercontent.com/duugagno/sangris-vrising-mod/main/manifest.json
+
+## 📋 Checklist Manual
+- [ ] Criar release no GitHub
+- [ ] Anexar arquivo SangrisInterface.dll
+- [ ] Testar download via launcher
+- [ ] Atualizar CHANGELOG.md se necessário
