@@ -1,9 +1,9 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "files": [
     {
       "path": "BepInEx/plugins/SangrisInterface.dll",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.1.0/SangrisInterface.dll",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.1.1/SangrisInterface.dll",
       "sha256": "825fa1c9d3a7724370ce51dc32c69f8a380344400cd63bb4ac7289cdad1e343b",
       "size": 336384
     }
