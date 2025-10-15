@@ -1,0 +1,32 @@
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de build local
+build/
+dist/
+out/
+
+# Arquivos de configuração local
+config.local.*
+settings.local.*
+
+# Cache do PowerShell
+*.ps1.cache
