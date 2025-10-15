@@ -27,7 +27,7 @@
 
 ---
 
-## 🔄 Fluxo Completo de Atualização
+## � Fluxo Completo de Atualização
 
 ### **1. Desenvolveu Nova Versão do Mod**
 
@@ -45,8 +45,24 @@ cd "d:\ProjetosC#\WinFormsApp1\SangrisRepo"
 - ✅ Atualiza `manifest.json` com nova versão
 - ✅ Faz commit e push para GitHub
 
-### **2. Publique a Release no GitHub**
+### **2. Compile o Launcher Standalone (se necessário)**
 
+```powershell
+# Navegue para a pasta do launcher
+cd "d:\ProjetosC#\WinFormsApp1"
+
+# Compile arquivo único para distribuição
+.\SangrisRepo\compilar-launcher.ps1 single-file
+
+# OU use o comando direto
+dotnet publish WinFormsApp1/WinFormsApp1.csproj --configuration Release --self-contained true --runtime win-x64 --output single-file-launcher -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+```
+
+**Resultado:** `single-file-launcher\SangriaLauncher.exe` (~154MB)
+
+### **3. Publique as Releases no GitHub**
+
+#### **Para o Mod (SangrisInterface):**
 1. **Acesse:** https://github.com/duugagno/sangris-vrising-mod/releases
 2. **Clique:** "Create a new release"
 3. **Preencha:**
@@ -56,12 +72,17 @@ cd "d:\ProjetosC#\WinFormsApp1\SangrisRepo"
 4. **Anexe:** O arquivo `SangrisInterface.dll`
 5. **Publique:** "Publish release"
 
-### **3. Teste a Atualização**
+#### **Para o Launcher (se atualizado):**
+1. **Crie repositório** para o launcher (ex: `sangria-launcher`)
+2. **Faça release** com `SangriaLauncher.exe`
+3. **Atualize links** no README do mod
+
+### **4. Teste a Atualização**
 
 ```powershell
 # Execute o launcher
-cd "d:\ProjetosC#\WinFormsApp1"
-dotnet run --project WinFormsApp1
+cd "d:\ProjetosC#\WinFormsApp1\single-file-launcher"
+.\SangriaLauncher.exe
 ```
 
 **Configure no launcher:**
@@ -102,8 +123,16 @@ dotnet build
 # Release (produção)
 dotnet build --configuration Release
 
-# Standalone (distribuição)
-dotnet publish --configuration Release --self-contained true --runtime win-x64 --output publish
+# Standalone - Arquivo Único (RECOMENDADO para distribuição)
+dotnet publish WinFormsApp1/WinFormsApp1.csproj --configuration Release --self-contained true --runtime win-x64 --output single-file-launcher -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+
+# Standalone - Multi-arquivos (desenvolvimento)
+dotnet publish WinFormsApp1/WinFormsApp1.csproj --configuration Release --self-contained true --runtime win-x64 --output standalone-launcher
+
+# Script automatizado (usa o script compilar-launcher.ps1)
+.\compilar-launcher.ps1 single-file    # Arquivo único (~154MB)
+.\compilar-launcher.ps1 standalone     # Multi-arquivos (~120MB)
+.\compilar-launcher.ps1 all           # Ambos os tipos
 ```
 
 ### **Verificação de Hash**
@@ -115,6 +144,23 @@ Get-FileHash "caminho\arquivo.dll" -Algorithm SHA256
 ---
 
 ## 🛠️ Tarefas de Manutenção
+
+### **Compilar Nova Versão do Launcher**
+
+```powershell
+# Método rápido com script
+cd "d:\ProjetosC#\WinFormsApp1\SangrisRepo"
+.\compilar-launcher.ps1 single-file
+
+# OU método manual
+cd "d:\ProjetosC#\WinFormsApp1"
+dotnet publish WinFormsApp1/WinFormsApp1.csproj --configuration Release --self-contained true --runtime win-x64 --output single-file-launcher -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+```
+
+**Tipos de compilação disponíveis:**
+- **Single File** (~154MB): Um único arquivo, ideal para distribuição
+- **Standalone** (~120MB): Múltiplos arquivos, mais rápido para executar
+- **Framework-dependent** (~200KB): Requer .NET instalado
 
 ### **Atualizar Documentação**
 
@@ -140,11 +186,25 @@ Copy-Item "d:\ProjetosC#\WinFormsApp1" $BackupPath -Recurse
 # Limpar builds
 Remove-Item "d:\ProjetosC#\WinFormsApp1\WinFormsApp1\bin" -Recurse -Force
 Remove-Item "d:\ProjetosC#\WinFormsApp1\WinFormsApp1\obj" -Recurse -Force
+Remove-Item "d:\ProjetosC#\WinFormsApp1\standalone-launcher" -Recurse -Force
+Remove-Item "d:\ProjetosC#\WinFormsApp1\single-file-launcher" -Recurse -Force
 
 # Rebuild
 dotnet clean
 dotnet build
 ```
+
+### **Distribuição do Launcher**
+
+**Para usuários finais:**
+1. Compile com: `.\compilar-launcher.ps1 single-file`
+2. Distribua: `single-file-launcher\SangriaLauncher.exe`
+3. Arquivo único de ~154MB
+4. Não requer .NET instalado
+
+**Para desenvolvedores:**
+1. Forneça o código fonte
+2. OU distribua versão framework-dependent menor
 
 ---
 
@@ -185,24 +245,28 @@ dotnet build
 
 ---
 
-## 📋 Checklist de Atualização
+### **Checklist de Atualização**
 
 ### **Antes de Atualizar:**
 - [ ] Backup do sistema atual
 - [ ] Testar nova versão localmente
 - [ ] Documentar mudanças no CHANGELOG
+- [ ] Verificar se o launcher precisa ser recompilado
 
 ### **Durante a Atualização:**
-- [ ] Executar `update-sangris.ps1`
+- [ ] Executar `update-sangris.ps1` ou `deploy.ps1`
 - [ ] Verificar que o commit foi feito
 - [ ] Confirmar push para GitHub
 - [ ] Criar release com arquivo anexado
+- [ ] (Se necessário) Compilar nova versão do launcher
 
 ### **Após a Atualização:**
 - [ ] Testar download via launcher
 - [ ] Verificar integridade do arquivo
 - [ ] Confirmar funcionamento no jogo
+- [ ] Executar `testar-sistema.ps1` para validação completa
 - [ ] Notificar usuários (se necessário)
+- [ ] Atualizar links de download do launcher (se aplicável)
 
 ---
 
@@ -211,73 +275,64 @@ dotnet build
 ### **Script de Verificação Completa**
 ```powershell
 # verificar-sistema.ps1
-$RepoPath = "d:\ProjetosC#\WinFormsApp1\SangrisRepo"
-$GamePath = "D:\SteamLibrary\steamapps\common\VRising\BepInEx\plugins"
-
-Write-Host "🔍 Verificando sistema..."
-
-# Verificar arquivos
-if (Test-Path "$RepoPath\plugins\SangrisInterface.dll") {
-    Write-Host "✅ Arquivo no repo encontrado"
-} else {
-    Write-Host "❌ Arquivo no repo não encontrado"
-}
-
-if (Test-Path "$GamePath\SangrisInterface.dll") {
-    Write-Host "✅ Arquivo no jogo encontrado"
-} else {
-    Write-Host "❌ Arquivo no jogo não encontrado"
-}
-
-# Verificar hashes
-$RepoHash = (Get-FileHash "$RepoPath\plugins\SangrisInterface.dll" -Algorithm SHA256).Hash.ToLower()
-$GameHash = (Get-FileHash "$GamePath\SangrisInterface.dll" -Algorithm SHA256).Hash.ToLower()
-
-if ($RepoHash -eq $GameHash) {
-    Write-Host "✅ Hashes coincidem"
-} else {
-    Write-Host "⚠️ Hashes diferentes - necessário atualizar"
-}
-
-Write-Host "📊 Repo Hash: $RepoHash"
-Write-Host "📊 Game Hash: $GameHash"
+.\verificar-sistema.ps1
 ```
+**Funcionalidades:**
+- ✅ Verifica estrutura de diretórios
+- ✅ Compara hashes entre repo e jogo
+- ✅ Valida manifest.json
+- ✅ Verifica status do Git
+- ✅ Mostra informações detalhadas
+
+### **Script de Compilação do Launcher**
+```powershell
+# compilar-launcher.ps1
+.\compilar-launcher.ps1 single-file    # Arquivo único (~154MB) - RECOMENDADO
+.\compilar-launcher.ps1 standalone     # Multi-arquivos (~120MB)
+.\compilar-launcher.ps1 all           # Compila ambos os tipos
+```
+**Funcionalidades:**
+- ✅ Limpa builds anteriores
+- ✅ Compila standalone automaticamente
+- ✅ Mostra tamanhos e tempo de compilação
+- ✅ Testa executável gerado
+- ✅ Relatório detalhado
 
 ### **Script de Deploy Completo**
 ```powershell
 # deploy.ps1
-param([string]$Version)
-
-if (-not $Version) {
-    Write-Error "Uso: .\deploy.ps1 '1.1.0'"
-    exit 1
-}
-
-Write-Host "🚀 Iniciando deploy da versão $Version..."
-
-# 1. Atualizar mod
-.\update-sangris.ps1 $Version
-
-# 2. Recompilar launcher
-Set-Location ".."
-dotnet build --configuration Release
-dotnet publish --configuration Release --self-contained true --runtime win-x64 --output publish
-
-Write-Host "✅ Deploy concluído!"
-Write-Host "📋 Próximos passos:"
-Write-Host "1. Criar release no GitHub: https://github.com/duugagno/sangris-vrising-mod/releases"
-Write-Host "2. Anexar SangrisInterface.dll"
-Write-Host "3. Testar launcher"
+.\deploy.ps1 "1.1.0"
 ```
+**Funcionalidades:**
+- ✅ Backup automático do sistema
+- ✅ Atualiza mod (via update-sangris.ps1)
+- ✅ Recompila launcher standalone
+- ✅ Executa testes básicos
+- ✅ Gera arquivo com informações da release
+- ✅ Abre GitHub automaticamente
+
+### **Script de Testes Completos**
+```powershell
+# testar-sistema.ps1
+.\testar-sistema.ps1
+```
+**Funcionalidades:**
+- ✅ 7 testes diferentes do sistema
+- ✅ Validação de arquivos e estrutura
+- ✅ Verificação de integridade SHA256
+- ✅ Teste de compilação do launcher
+- ✅ Conectividade com GitHub
+- ✅ Relatório detalhado com estatísticas
 
 ---
 
 ## 📞 Contatos de Emergência
 
 ### **URLs Importantes:**
-- **Repositório:** https://github.com/duugagno/sangris-vrising-mod
-- **Releases:** https://github.com/duugagno/sangris-vrising-mod/releases
+- **Repositório Mod:** https://github.com/duugagno/sangris-vrising-mod
+- **Releases Mod:** https://github.com/duugagno/sangris-vrising-mod/releases
 - **Manifest:** https://raw.githubusercontent.com/duugagno/sangris-vrising-mod/main/manifest.json
+- **Repositório Launcher:** (criar se necessário para distribuição)
 
 ### **Comandos de Emergência:**
 ```powershell
@@ -289,11 +344,110 @@ git reset --hard HEAD~1
 
 # Forçar push (cuidado!)
 git push --force-with-lease
+
+# Recompilar launcher urgente
+.\compilar-launcher.ps1 single-file
 ```
+
+### **Locais dos Executáveis:**
+- **Desenvolvimento:** `d:\ProjetosC#\WinFormsApp1\WinFormsApp1\bin\Debug\net8.0-windows\SangriaLauncher.exe`
+- **Release:** `d:\ProjetosC#\WinFormsApp1\WinFormsApp1\bin\Release\net8.0-windows\SangriaLauncher.exe`
+- **Standalone:** `d:\ProjetosC#\WinFormsApp1\standalone-launcher\SangriaLauncher.exe`
+- **Single File:** `d:\ProjetosC#\WinFormsApp1\single-file-launcher\SangriaLauncher.exe` ⭐ **Recomendado**
 
 ---
 
-## 📝 Notas Importantes
+## � Compilação Standalone Detalhada
+
+### **🎯 Tipos de Compilação**
+
+| Tipo | Comando | Tamanho | Arquivos | Melhor Para |
+|------|---------|---------|----------|-------------|
+| **Single File** | `.\compilar-launcher.ps1 single-file` | ~154MB | 1 arquivo | **Distribuição** ⭐ |
+| **Standalone** | `.\compilar-launcher.ps1 standalone` | ~120MB | 180+ arquivos | Desenvolvimento |
+| **Framework-dependent** | `dotnet build --configuration Release` | ~200KB | Poucos | Servidores com .NET |
+
+### **🚀 Compilação Rápida (Recomendada)**
+
+```powershell
+# Usando script automatizado
+cd "d:\ProjetosC#\WinFormsApp1\SangrisRepo"
+.\compilar-launcher.ps1 single-file
+
+# Resultado: ../single-file-launcher/SangriaLauncher.exe (~154MB)
+```
+
+### **🔧 Compilação Manual**
+
+```powershell
+# Navegar para pasta do projeto
+cd "d:\ProjetosC#\WinFormsApp1"
+
+# Limpar builds anteriores
+dotnet clean --configuration Release
+
+# Compilar arquivo único
+dotnet publish WinFormsApp1/WinFormsApp1.csproj \
+  --configuration Release \
+  --self-contained true \
+  --runtime win-x64 \
+  --output single-file-launcher \
+  -p:PublishSingleFile=true \
+  -p:IncludeNativeLibrariesForSelfExtract=true
+
+# Testar executável
+.\single-file-launcher\SangriaLauncher.exe
+```
+
+### **📊 Comparação de Performance**
+
+| Aspecto | Single File | Standalone | Framework-dependent |
+|---------|-------------|------------|---------------------|
+| **Startup** | Médio | Rápido | Muito Rápido |
+| **Distribuição** | Excelente | Ruim | Médio |
+| **Tamanho** | Grande | Grande | Pequeno |
+| **Dependências** | Nenhuma | Nenhuma | .NET 8 |
+
+### **🎯 Quando Usar Cada Tipo**
+
+#### **Single File - Use quando:**
+- ✅ Distribuir para usuários finais
+- ✅ Máquinas sem .NET instalado
+- ✅ Facilidade de compartilhamento
+- ✅ Instalação "zero-click"
+
+#### **Standalone - Use quando:**
+- ✅ Desenvolvimento/debug
+- ✅ Performance de startup é crítica
+- ✅ Acesso fácil a DLLs individuais
+
+#### **Framework-dependent - Use quando:**
+- ✅ Servidores com .NET instalado
+- ✅ Tamanho é crítico
+- ✅ Atualizações frequentes do runtime
+
+### **🔍 Troubleshooting Compilação**
+
+#### **Erro: "Windows Forms is not supported with trimming"**
+```powershell
+# REMOVA o parâmetro -p:PublishTrimmed=true
+# Windows Forms não suporta trimming
+```
+
+#### **Erro: "Could not find a part of the path"**
+```powershell
+# Verifique se o caminho do projeto está correto
+# Use caminhos absolutos se necessário
+```
+
+#### **Executável não inicia**
+```powershell
+# Verifique se é Windows x64
+# Teste sem parâmetros -p:PublishSingleFile primeiro
+# Verifique antivírus (pode bloquear executáveis grandes)
+```
+
+---
 
 > ⚠️ **SEMPRE** faça backup antes de mudanças importantes
 > 
