@@ -1,3 +1,6 @@
+# Pasta FILES não deve ser versionada
+files/
+
 # Logs
 *.log
 
