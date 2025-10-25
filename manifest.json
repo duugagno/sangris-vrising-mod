@@ -3,7 +3,7 @@
   "files": [
     {
       "sha256": "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.3.9/.doorstop_version",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.3.9/default.doorstop_version",
       "path": ".doorstop_version",
       "size": 5,
       "type": "file"
