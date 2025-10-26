@@ -16,6 +16,7 @@ files/
 CHANGELOG.md
 CONTRIBUTING.md
 deploy.ps1
+deploy-quick.ps1
 GUIA-INTERNO.md
 README.md
 release-info-*.txt
