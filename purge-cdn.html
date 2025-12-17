@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Purge jsDelivr CDN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-box li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        .info-box li:before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+        
+        .purge-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .purge-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+        
+        .purge-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .warning strong {
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .success.show {
+            display: block;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Purge jsDelivr CDN</h1>
+        <p class="subtitle">Limpar cache do manifest.json globalmente</p>
+        
+        <div class="info-box">
+            <h3>📋 O que este botão faz:</h3>
+            <ul>
+                <li>Limpa cache do jsDelivr em TODOS os servidores mundiais</li>
+                <li>Força atualização imediata do manifest.json</li>
+                <li>TODOS os usuários receberão a nova versão</li>
+                <li>Efeito em 1-2 minutos</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong> Clique APENAS se você acabou de fazer deploy de uma nova versão no GitHub!
+        </div>
+        
+        <button class="purge-btn" onclick="purgeCDN()">
+            🔥 PURGE CDN AGORA
+        </button>
+        
+        <div class="success" id="successMsg">
+            <strong>✅ Sucesso!</strong> Cache do jsDelivr foi purgado. Todos os usuários receberão a nova versão em 1-2 minutos.
+        </div>
+        
+        <div class="info-box">
+            <h3>⏱️ Timeline:</h3>
+            <ul>
+                <li><strong>Agora:</strong> Cache limpo globalmente</li>
+                <li><strong>1-2 min:</strong> jsDelivr serve nova versão</li>
+                <li><strong>Até 10 min:</strong> Cache local dos usuários expira</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            Sangria V Rising Mod - Deploy Automation
+        </div>
+    </div>
+    
+    <script>
+        function purgeCDN() {
+            const purgeUrl = 'https://purge.jsdelivr.net/gh/duugagno/sangris-vrising-mod@main/manifest.json';
+            
+            // Abrir em nova aba
+            window.open(purgeUrl, '_blank');
+            
+            // Mostrar mensagem de sucesso
+            document.getElementById('successMsg').classList.add('show');
+            
+            // Desabilitar botão
+            const btn = document.querySelector('.purge-btn');
+            btn.disabled = true;
+            btn.textContent = '✅ PURGE REALIZADO';
+            btn.style.background = '#28a745';
+            btn.style.cursor = 'not-allowed';
+        }
+    </script>
+</body>
+</html>
