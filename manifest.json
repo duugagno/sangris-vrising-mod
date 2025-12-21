@@ -1,47 +1,47 @@
 {
-  "version": "1.6.2",
   "files": [
     {
-      "size": 5,
       "path": ".doorstop_version",
-      "sha256": "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/default.doorstop_version",
+      "size": 5,
       "type": "file",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/default.doorstop_version"
+      "sha256": "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1"
     },
     {
-      "size": 3257,
       "path": "changelog.txt",
-      "sha256": "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/changelog.txt",
+      "size": 3257,
       "type": "file",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/changelog.txt"
+      "sha256": "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f"
     },
     {
-      "size": 1881,
       "path": "doorstop_config.ini",
-      "sha256": "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/doorstop_config.ini",
+      "size": 1881,
       "type": "file",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/doorstop_config.ini"
+      "sha256": "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052"
     },
     {
-      "size": 26112,
       "path": "winhttp.dll",
-      "sha256": "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/winhttp.dll",
+      "size": 26112,
       "type": "file",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/winhttp.dll"
+      "sha256": "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8"
     },
     {
-      "size": 45847372,
       "path": "BepInEx",
-      "sha256": "7a2424de8d676ce93743acad7500845ce1826f48c8b50b1629f3e591683c8a72",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/BepInEx.zip",
+      "size": 45847057,
       "type": "folder",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/BepInEx.zip"
+      "sha256": "6838acceb37811f15b2cd8532f18f9c4da89a8c232041f15d588fad26181e387"
     },
     {
-      "size": 32794307,
       "path": "dotnet",
-      "sha256": "428886453b45c7661d0235fc7d4fe5ab06a807a41d367f68713ffa1bd4e8ad6e",
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/dotnet.zip",
+      "size": 32794307,
       "type": "folder",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.2/dotnet.zip"
+      "sha256": "3f5c772d1dac440774fdeca043b3bf3cd177508cb53ccfca2a76944d70db930a"
     }
-  ]
+  ],
+  "version": "1.6.3"
 }
