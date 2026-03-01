@@ -1,47 +1,47 @@
-﻿{
-    "version":  "1.6.5",
-    "files":  [
-                  {
-                      "path":  ".doorstop_version",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/default.doorstop_version",
-                      "type":  "file",
-                      "sha256":  "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1",
-                      "size":  5
-                  },
-                  {
-                      "path":  "changelog.txt",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/changelog.txt",
-                      "type":  "file",
-                      "sha256":  "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f",
-                      "size":  3257
-                  },
-                  {
-                      "path":  "doorstop_config.ini",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/doorstop_config.ini",
-                      "type":  "file",
-                      "sha256":  "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052",
-                      "size":  1881
-                  },
-                  {
-                      "path":  "winhttp.dll",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/winhttp.dll",
-                      "type":  "file",
-                      "sha256":  "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8",
-                      "size":  26112
-                  },
-                  {
-                      "path":  "BepInEx",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/BepInEx.zip",
-                      "type":  "folder",
-                      "sha256":  "e6f7b41845795f5dc6766aa4957713c173228e8cecb4884f2b939485496c850b",
-                      "size":  46787660
-                  },
-                  {
-                      "path":  "dotnet",
-                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/dotnet.zip",
-                      "type":  "folder",
-                      "sha256":  "4429af6aadb66e603ccccff32f7507e897b6a9966708949dc5ef54afd893be16",
-                      "size":  31754019
-                  }
-              ]
+{
+  "version": "1.6.6",
+  "files": [
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/default.doorstop_version",
+      "sha256": "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1",
+      "path": ".doorstop_version",
+      "type": "file",
+      "size": 5
+    },
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/changelog.txt",
+      "sha256": "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f",
+      "path": "changelog.txt",
+      "type": "file",
+      "size": 3257
+    },
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/doorstop_config.ini",
+      "sha256": "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052",
+      "path": "doorstop_config.ini",
+      "type": "file",
+      "size": 1881
+    },
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/winhttp.dll",
+      "sha256": "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8",
+      "path": "winhttp.dll",
+      "type": "file",
+      "size": 26112
+    },
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/BepInEx.zip",
+      "sha256": "cf86859e85ca0f17161dc95eb63912952a70f613151ccc8ba61c9944eec81d78",
+      "path": "BepInEx",
+      "type": "folder",
+      "size": 47357005
+    },
+    {
+      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.6/dotnet.zip",
+      "sha256": "7c540172f98b631460fad6cc1fd9adffb401fc6339336e9ac43b67510080440b",
+      "path": "dotnet",
+      "type": "folder",
+      "size": 32794307
+    }
+  ]
 }
