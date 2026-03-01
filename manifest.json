@@ -1,47 +1,47 @@
-{
-  "files": [
-    {
-      "path": ".doorstop_version",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/default.doorstop_version",
-      "size": 5,
-      "type": "file",
-      "sha256": "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1"
-    },
-    {
-      "path": "changelog.txt",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/changelog.txt",
-      "size": 3257,
-      "type": "file",
-      "sha256": "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f"
-    },
-    {
-      "path": "doorstop_config.ini",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/doorstop_config.ini",
-      "size": 1881,
-      "type": "file",
-      "sha256": "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052"
-    },
-    {
-      "path": "winhttp.dll",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/winhttp.dll",
-      "size": 26112,
-      "type": "file",
-      "sha256": "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8"
-    },
-    {
-      "path": "BepInEx",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/BepInEx.zip",
-      "size": 45847057,
-      "type": "folder",
-      "sha256": "6838acceb37811f15b2cd8532f18f9c4da89a8c232041f15d588fad26181e387"
-    },
-    {
-      "path": "dotnet",
-      "url": "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.3/dotnet.zip",
-      "size": 32794307,
-      "type": "folder",
-      "sha256": "3f5c772d1dac440774fdeca043b3bf3cd177508cb53ccfca2a76944d70db930a"
-    }
-  ],
-  "version": "1.6.3"
+﻿{
+    "version":  "1.6.5",
+    "files":  [
+                  {
+                      "path":  ".doorstop_version",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/default.doorstop_version",
+                      "type":  "file",
+                      "sha256":  "2744735fee2ee237e29f592f88ab669dc8d478fca31e6da4caf9a4a1b3abb7f1",
+                      "size":  5
+                  },
+                  {
+                      "path":  "changelog.txt",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/changelog.txt",
+                      "type":  "file",
+                      "sha256":  "232c953eb2bf444fab20cb9da1afe2658566bb0ac7765e7e7374336c20571b2f",
+                      "size":  3257
+                  },
+                  {
+                      "path":  "doorstop_config.ini",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/doorstop_config.ini",
+                      "type":  "file",
+                      "sha256":  "996bda4a6e4a105b2cd48a6e756bafb32178546394afd7b47ab5e199120c4052",
+                      "size":  1881
+                  },
+                  {
+                      "path":  "winhttp.dll",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/winhttp.dll",
+                      "type":  "file",
+                      "sha256":  "d3b62f4c9c3e2196ef82603c52d6b98c043a0d6c125c081fd33d7ca3798b41b8",
+                      "size":  26112
+                  },
+                  {
+                      "path":  "BepInEx",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/BepInEx.zip",
+                      "type":  "folder",
+                      "sha256":  "e6f7b41845795f5dc6766aa4957713c173228e8cecb4884f2b939485496c850b",
+                      "size":  46787660
+                  },
+                  {
+                      "path":  "dotnet",
+                      "url":  "https://github.com/duugagno/sangris-vrising-mod/releases/download/v1.6.5/dotnet.zip",
+                      "type":  "folder",
+                      "sha256":  "4429af6aadb66e603ccccff32f7507e897b6a9966708949dc5ef54afd893be16",
+                      "size":  31754019
+                  }
+              ]
 }
